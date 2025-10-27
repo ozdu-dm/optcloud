@@ -11,5 +11,5 @@ Objectiu de la pràctica
 - Crear una VPC pròpia amb el rang d’adreces 10.0.0.0/16.
 - Afegir dues subxarxes públiques (una per cada zona de disponibilitat).
 - Configurar un Internet Gateway i una taula de rutes pública.
-- Crear un grup de seguretat** que controli els accessos.
+- Crear un grup de seguretat que controli els accessos.
 - Llançar dues instàncies EC2 amb Amazon Linux, una a cada subxarxa.
