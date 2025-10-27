@@ -1,4 +1,4 @@
-Exercici 1 – Infraestructura bàsica a AWS amb Terraform
+Exercici 1 
 
 Aquest exercici crea una infraestructura bàsica a AWS utilitzant Terraform.  
 L’objectiu és desplegar una xarxa amb dues subxarxes públiques i dues instàncies EC2, tal com mostra el diagrama proporcionat.
