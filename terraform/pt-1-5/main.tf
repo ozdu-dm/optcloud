@@ -1,4 +1,4 @@
-# ---------- VPC ----------
+# VPC
 resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
   tags = {
@@ -8,7 +8,7 @@ resource "aws_vpc" "main" {
 }
 
 
-# ---------- Internet Gateway ----------
+# Internet Gateway
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
   tags = {
@@ -18,7 +18,7 @@ resource "aws_internet_gateway" "igw" {
 }
 
 
-# ---------- Subnets ----------
+# Subnets
 resource "aws_subnet" "public" {
   count                   = var.subnet_count
   vpc_id                  = aws_vpc.main.id
@@ -42,7 +42,7 @@ resource "aws_subnet" "private" {
 }
 
 
-# ---------- Route Table pública ----------
+# Route Table pública
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
   route {
@@ -63,7 +63,7 @@ resource "aws_route_table_association" "public_assoc" {
 }
 
 
-# ---------- Security Group ----------
+# Security Group
 resource "aws_security_group" "sg" {
   vpc_id = aws_vpc.main.id
 
@@ -107,7 +107,7 @@ resource "aws_security_group" "sg" {
 }
 
 
-# ---------- Instàncies públiques ----------
+# Instàncies públiques
 resource "aws_instance" "public" {
   count                       = var.instance_count * var.subnet_count
   ami                         = var.instance_ami
@@ -122,7 +122,7 @@ resource "aws_instance" "public" {
 }
 
 
-# ---------- Instàncies privades ----------
+# Instàncies privades
 resource "aws_instance" "private" {
   count                       = var.instance_count * var.subnet_count
   ami                         = var.instance_ami
@@ -137,7 +137,7 @@ resource "aws_instance" "private" {
 }
 
 
-# ---------- Bucket S3 condicional ----------
+# Bucket S3 condicional
 resource "aws_s3_bucket" "project" {
   count  = var.create_s3_bucket ? 1 : 0
   bucket = "${var.project_name}-buckett"
