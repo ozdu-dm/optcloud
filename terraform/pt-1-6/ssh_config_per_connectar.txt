@@ -1,0 +1,20 @@
+Host bastion
+  HostName 100.31.43.231
+  User ubuntu
+  IdentityFile ~/.ssh/bastion.pem
+
+Host private-1
+  HostName 10.0.2.10
+  User ubuntu
+  ProxyJump bastion
+  IdentityFile ~/.ssh/private-1.pem
+Host private-2
+  HostName 10.0.3.10
+  User ubuntu
+  ProxyJump bastion
+  IdentityFile ~/.ssh/private-2.pem
+Host private-3
+  HostName 10.0.4.10
+  User ubuntu
+  ProxyJump bastion
+  IdentityFile ~/.ssh/private-3.pem
