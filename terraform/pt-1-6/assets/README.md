@@ -1,0 +1,1 @@
+En el proyecto creamos una VPC con un bastion a la subred pública que conecta con las instancias privadas. Terraform genera las clavas SSH, configura el Proxy Jump y guarda las claves públicas a S3 para acceder de forma segura a todas las máquinas.
